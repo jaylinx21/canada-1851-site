@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Canada Displayed - Canada at the 1851 Exhibition</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #2f4f4f;
+    }
+    .sidebar-flag {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-flag img {
+      width: 80px;
+      height: auto;
+      border-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      background-color: #2e5b3f;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 12px 16px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #f0f8ff;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      background-color: #3cb371;
+    }
+
+    .main {
+      margin-left: 260px;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #556b2f;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .item {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+    }
+
+    .item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .item p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #2f4f4f;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: black;
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .close {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #999;
+      text-decoration: none;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      transition: 0.6s ease;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .caption-container {
+      text-align: center;
+      background-color: black;
+      color: white;
+      padding: 10px;
+    }
+
+    .demo {
+      opacity: 0.6;
+      cursor: pointer;
+    }
+
+    .demo:hover, .active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="sidebar-flag">
+        <img src="images/canadian_flag .png" alt="Canadian Flag">
+    </div>
+    <a href="index.html">Introduction</a>
+    <a href="why.html">Why Canada Participated</a>
+    <a href="display.html">What Canada Displayed</a>
+    <a href="reception.html">Reception and Impact</a>
+    <a href="challenges.html">Challenges and Criticism</a>
+    <a href="conclusion.html">Conclusion</a>
+  </div>
+
+  <div class="main">
+    <h1>What Canada Displayed</h1>
+    <p><strong>Natural Resources:</strong> Canada exhibited massive white pine and maple timber, high-quality wheat, and luxurious fur products from the thriving fur trade.</p>
+    <p><strong>Manufactured Goods:</strong> Visitors admired finely crafted furniture made from native woods, hand-built carriages and sleighs, and a selection of textiles and artisan crafts.</p>
+    <p><strong>Special Highlight:</strong> A giant maple tree trunk stood out among the exhibits, symbolizing the vastness and richness of Canada's natural forests and impressing the international audience.</p>
+
+    <h2>Highlights from Canada's Exhibition</h2>
+
+    <div class="gallery">
+      <div class="item">
+        <img src="images/maple_log.jpg" alt="Maple Log" onclick="openModal();currentSlide(1)">
+        <p>Massive maple tree trunk symbolizing Canada's vast forests.</p>
+      </div>
+      <div class="item">
+        <img src="images/fur_pelts.jpg" alt="Fur Pelts" onclick="openModal();currentSlide(2)">
+        <p>Fur pelts from the Canadian fur trade — beaver, mink, and fox.</p>
+      </div>
+      <div class="item">
+        <img src="images/grain_samples.jpg" alt="Grain Samples" onclick="openModal();currentSlide(3)">
+        <p>High-quality grain samples showing Canada's agricultural promise.</p>
+      </div>
+      <div class="item">
+        <img src="images/sofa_table.jpg" alt="Sofa Table" onclick="openModal();currentSlide(4)">
+        <p>Sofa Table by Thomas Nisbet, circa 1820.</p>
+      </div>
+      <div class="item">
+        <img src="images/canopy_bed.jpg" alt="Canopy Bed" onclick="openModal();currentSlide(5)">
+        <p>Canopy Bed from Niagara Region, circa 1840.</p>
+      </div>
+      <div class="item">
+        <img src="images/canadian_hall.jpg" alt="Canadian Hall" onclick="openModal();currentSlide(6)">
+        <p>Canadian Hall at the Great Exhibition, 1851.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal/Lightbox -->
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <div class="mySlides"><div class="numbertext">1 / 6</div><img src="images/maple_log.jpg" style="width:100%"></div>
+      <div class="mySlides"><div class="numbertext">2 / 6</div><img src="images/fur_pelts.jpg" style="width:100%"></div>
+      <div class="mySlides"><div class="numbertext">3 / 6</div><img src="images/grain_samples.jpg" style="width:100%"></div>
+      <div class="mySlides"><div class="numbertext">4 / 6</div><img src="images/sofa_table.jpg" style="width:100%"></div>
+      <div class="mySlides"><div class="numbertext">5 / 6</div><img src="images/canopy_bed.jpg" style="width:100%"></div>
+      <div class="mySlides"><div class="numbertext">6 / 6</div><img src="images/canadian_hall.jpg" style="width:100%"></div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <div class="caption-container"><p id="caption"></p></div>
+
+      <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 10px;">
+        <img class="demo" src="images/maple_log.jpg" onclick="currentSlide(1)" alt="Maple Log" style="width:100px;">
+        <img class="demo" src="images/fur_pelts.jpg" onclick="currentSlide(2)" alt="Fur Pelts" style="width:100px;">
+        <img class="demo" src="images/grain_samples.jpg" onclick="currentSlide(3)" alt="Grain Samples" style="width:100px;">
+        <img class="demo" src="images/sofa_table.jpg" onclick="currentSlide(4)" alt="Sofa Table" style="width:100px;">
+        <img class="demo" src="images/canopy_bed.jpg" onclick="currentSlide(5)" alt="Canopy Bed" style="width:100px;">
+        <img class="demo" src="images/canadian_hall.jpg" onclick="currentSlide(6)" alt="Canadian Hall" style="width:100px;">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+  </script>
+
+</body>
+</html>
